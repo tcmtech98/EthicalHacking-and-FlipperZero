@@ -1,0 +1,11 @@
+# .gitignore
+
+.classpath
+.project
+.settings/
+bin/
+.DS_Store
+.DS_Store_
+.DS_Store?
+.Spotlight-V100
+.Trashes
