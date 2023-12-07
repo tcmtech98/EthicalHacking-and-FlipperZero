@@ -1,6 +1,7 @@
 # scanpy
 
 This program was developed for cybersecurity and pentesting purposes only!
+<br>*This program was intended for python3*
 <br><br>
 This python file used to search for open ports on a specified host.
 Most scanners do not include "local" resolving.
@@ -9,9 +10,9 @@ This was included to allow for future integration with Flipper Zero's BadUSB and
 
 # Syntax and Arguments
 Using this basic framework, adjust the launching of the program accordingly:
-<python/python3> scanpy.py <%host%|local> <common|port:%port%|port:x-y|port:x,y,z|file:%filename%>
+#### python3 scanpy.py {%host%|local} {common|port:%port%|port:x-y|port:x,y,z|file:%filename%}
 
-#### <%host%|local>
+#### {%host%|local}
   - %host% is replaced with the target's ip address
   - local refers to the computer's public ip address
 #### common
@@ -24,10 +25,8 @@ Using this basic framework, adjust the launching of the program accordingly:
 #### file:%filename%
   - uses an external txt file for searching (ex: file:ports.txt)<br>
 
-#### Example for Flipper Zero scripting (python3)
+#### Example for Flipper Zero scripting
     python3 scanpy.py local common
-#### Example for Flipper Zero scripting (python)
-    python scanpy.py local common
 You can take the examples a step futher by implementing the other arguments.
 <br><br>
 
