@@ -3,20 +3,34 @@ import socket
 import importlib.util
 from datetime import datetime as dt
 
+# Program: scanpy.py
+# Description: used to search for open ports on a specified host
+# Author: tcmtech98
+# Website: tcmtech98.com
+# GitHub: github.com/tcmtech98
+# Version: 1.0
+# Created: 12/5/23
+# Last Modified: 12/7/23
+
 # **NOTE**
 # 	Be careful with lengthy searching, as it can take a VERY long time to gather results!
 
-# Syntax:
-#	<python> scanpy.py <host-ip|local> <common|port:%port%|ports:%ports%|list:%filename%>
-#		- User defines the target host ip or to use local public address		
-#		- common:
-#			- Program defines which ports to search through using common ports list
-#		- port:%port%:
-#			- Where %port% is a single port to search for
-#		- ports:%ports%:
-#			- Where ports are a range of ports to search through, separated by a hyphen
-#		- list:%filename%:
-#			- Where filename is an external file utilized for searching
+# Syntax: 
+#	python scanpy.py {%host%|local} {common|port:%port%|port:x-y|port:x,y,z|file:%filename%}
+#		Arguments:
+#			-> {%host%|local}
+#				- %host%: replaced with target's ip address
+#				- local: refers to the computer's public ip address
+#			-> common
+#				- program defines which ports to search through using common ports list
+#				- common ports: 20, 21, 22, 23, 25, 53, 80, 137, 139, 443, 445, 1433
+#				  1434, 3306, 3389, 8080, 8443
+#			-> port
+#				- %port%: a single port to search for (ex: port:21)
+#				- x-y: a range of ports for searching, separated by a hyphen (ex: port:21-22)
+#				- x,y,z: a list of ports for searching, separated by a comma (ex: port:21,22,80)
+#			-> file:%filename%
+#				- uses an external txt file for searching (ex: file:ports.txt)
 
 # .txt File Syntax:
 #	int is recognized, anything else is not and will stop the program
@@ -45,21 +59,21 @@ commonPorts = [20, 21, 22, 23, 25, 53, 80, 137, 139, 443, 445, 1433, 1434, 3306,
 
 # Prints help menu
 def printHelp():
-	print("\nSyntax: <python> scanpy.py <%host%|local> <common|port:%port%|port:x-y|port:x,y,z|file:%filename%>"
+	print("\nSyntax: python3 scanpy.py {%host%|local} {common|port:%port%|port:x-y|port:x,y,z|file:%filename%}"
 	+ "\n    Arguments:"
-	+ "\n    -> <%host%|local>:"
-	+ "\n       - %host% is replaced with target ip address"
-	+ "\n       - local refers to the computer's public ip address"
-	+ "\n    -> common:"
+	+ "\n    -> {%host%|local}"
+	+ "\n       - %host%: replaced with target's ip address"
+	+ "\n       - local: refers to the computer's public ip address"
+	+ "\n    -> common"
 	+ "\n       - program defines which ports to search through using common ports list"
 	+ "\n       - common ports: 20, 21, 22, 23, 25, 53, 80, 137, 139, 443, 445, 1433"
 	+ "\n         1434, 3306, 3389, 8080, 8443"
-	+ "\n    -> port:<option>"
-	+ "\n       - where %port% is a single port to search for"
-	+ "\n       - where x-y are a range of ports for searching, separated by hyphen"
-	+ "\n       - where x,y,z are a list of ports for searching, separated by a comma"
-	+ "\n    -> file:%filename%:"
-	+ "\n       - where %filename% is an external txt file utilized for searching\n")
+	+ "\n    -> port"
+	+ "\n       - %port%: a single port to search for (ex: port:21)"
+	+ "\n       - x-y: a range of ports for searching, separated by a hyphen (ex: port:21-22)"
+	+ "\n       - x,y,z: a list of ports for searching, separated by a comma (ex: port:21,22,80)"
+	+ "\n    -> file:%filename%"
+	+ "\n       - uses an external txt file for searching (ex: file:ports.txt)\n")
 
 # Installs defined library
 def install(package):
