@@ -13,8 +13,8 @@ Using this basic framework, adjust the launching of the program accordingly:
 #### python3 scanpy.py {%host%|local} {common|port:%port%|port:x-y|port:x,y,z|file:%filename%}
 
 #### {%host%|local}
-  - %host% is replaced with the target's ip address
-  - local refers to the computer's public ip address
+  - %host%: replaced with the target's ip address
+  - local: refers to the computer's public ip address
 #### common
   - program defines which ports to search through using common ports list
   - common ports: see list in section "Common Ports"
