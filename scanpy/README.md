@@ -1,5 +1,7 @@
 # scanpy
 
+This program was developed for cybersecurity and pentesting purposes only!
+<br><br>
 This python file used to search for open ports on a specified host.
 Most scanners do not include "local" resolving.
 This was included to allow for future integration with Flipper Zero's BadUSB and RubberDucky.
@@ -73,4 +75,8 @@ The program has built in "common ports" to search through when using the "common
 <br><br>
 
 # Flipper Zero Integration
-Scripting with Flipper Zero will be released soon!
+Silent exfiltration will be available soon!
+
+Please edit script files according to your specifications.<br>
+Default configuration in the script file auto-closes CLI applications after 3 minutes after the program is launched by the script.
+This ensures that whichever computer this is used on will not have any windows left open. <br>
